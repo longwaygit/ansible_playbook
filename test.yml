@@ -3,5 +3,6 @@
   remote_user: root
   tasks:
     - name: check the hostname on the server
-      command: hostname -f&&df -h;
-
+      command: hostname -f
+    - name: check the hostname on the server
+      command: df -h
