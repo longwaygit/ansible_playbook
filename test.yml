@@ -1,0 +1,8 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: check the hostname on the server
+      command: hostname -f
+    - name: check the ip address on the server
+      command: ip add
