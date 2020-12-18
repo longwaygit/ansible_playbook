@@ -1,0 +1,8 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: filesystem usage is more than 10%
+      shell: df -h|tail -n +2 | sed s/%//g | awk '{ if($5 > 10) print $6" usage is "$5"%";}'
+      register: cmd_result
+    - debug: msg=" stdout is {{ cmd_result.stdout }}, stderr is {{ cmd_result.stderr }}, execute time is {{ cmd_result.delta }}"
